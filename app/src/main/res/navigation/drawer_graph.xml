@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/marketFragment">
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.example.cryptowallet.views.MarketFragment"
+        android:label="Market"
+        tools:layout="@layout/fragment_market" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.example.cryptowallet.views.HoldingsFragment"
+        android:label="Wallet"
+        tools:layout="@layout/fragment_holdings" />
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.example.cryptowallet.views.TransactionFragment"
+        android:label="Transaction"
+        tools:layout="@layout/fragment_transaction" />
+    <fragment
+        android:id="@+id/dialogTransactionFragment"
+        android:name="com.example.cryptowallet.views.TransactionDialogFragment"
+        tools:layout="@layout/add_transaction_dialog" />
+</navigation>

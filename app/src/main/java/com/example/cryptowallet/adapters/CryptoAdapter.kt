@@ -10,12 +10,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptowallet.R
 import com.example.cryptowallet.models.Crypto
 import com.example.cryptowallet.models.Transaction
 import com.example.cryptowallet.models.TransactionType
 import com.example.cryptowallet.viewModel.CryptoViewModel
+import java.text.DecimalFormat
 import java.util.Calendar
 import java.util.Date
 
@@ -24,6 +26,7 @@ class CryptoAdapter(
     private val viewModel: CryptoViewModel,
     private val context: Context
 ) : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_crypto, parent, false)
@@ -34,11 +37,18 @@ class CryptoAdapter(
         val crypto = cryptoList[position]
         holder.bind(crypto)
         holder.itemView.setOnClickListener {
-            showBuyCryptoDialog(context, crypto.logo, crypto.symbol) { quantity, price, date ->
-                // Crear un objeto Date a partir de la fecha en milisegundos
-                val transactionDate = Date(date)
+            showBuyCryptoDialog(context, crypto.logo, crypto.symbol, viewModel.availableBalance.value ?: 0.0) { quantity, price, date ->
+                // Calcular el costo total
+                val totalCost = quantity * price
 
-                // Crear el objeto Transaction
+                // Verificar si hay suficiente saldo
+                if (totalCost > (viewModel.availableBalance.value ?: 0.0)) {
+                    Toast.makeText(context, "Insufficient balance", Toast.LENGTH_SHORT).show()
+                    return@showBuyCryptoDialog
+                }
+
+                // Crear transacción
+                val transactionDate = Date(date)
                 val transaction = Transaction(
                     logo = crypto.logo,
                     name = crypto.name,
@@ -49,7 +59,7 @@ class CryptoAdapter(
                     date = transactionDate
                 )
 
-                // Manejar la transacción aquí, por ejemplo, guardar en la base de datos usando viewModel
+                // Añadir transacción
                 viewModel.addTransaction(transaction)
             }
         }
@@ -69,7 +79,10 @@ class CryptoAdapter(
             logoImageView.setImageResource(crypto.logo)
             nameTextView.text = crypto.name
             symbolTextView.text = crypto.symbol
-            priceTextView.text = "$${crypto.price}"
+
+            // Crear un DecimalFormat para cantidades (4 decimales)
+            val quantityFormat = DecimalFormat("#,##0.00##")
+            priceTextView.text = "$ ${quantityFormat.format(crypto.price)}"
         }
     }
 
@@ -77,6 +90,7 @@ class CryptoAdapter(
         context: Context,
         logoResId: Int,
         symbol: String,
+        availableBalance: Double,
         onAdd: (quantity: Double, price: Double, date: Long) -> Unit
     ) {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.add_transaction_dialog, null)
@@ -88,6 +102,12 @@ class CryptoAdapter(
         val dateInput: EditText = dialogView.findViewById(R.id.dateInput)
         val cancelButton: Button = dialogView.findViewById(R.id.cancelButton)
         val addButton: Button = dialogView.findViewById(R.id.addButton)
+
+        val quantityFormat = DecimalFormat("#,##0.00##")
+
+        // Mostrar saldo disponible
+        val balanceTextView: TextView = dialogView.findViewById(R.id.balanceTextView)
+        balanceTextView.text = "Available Balance: $ ${quantityFormat.format(availableBalance)}"
 
         logoImageView.setImageResource(logoResId)
         symbolTextView.text = symbol

@@ -11,9 +11,17 @@ import com.example.cryptowallet.models.TransactionType
 
 class CryptoViewModel : ViewModel() {
 
-    private val _cryptoList = CryptoProvider.cryptoList.toMutableList()
-    private val _transactionHistory = MutableLiveData<MutableList<Transaction>>(mutableListOf())
-    private val _holdingsList = MutableLiveData<MutableList<Holdings>>(mutableListOf())
+    private val _availableBalance = MutableLiveData<Double>(0.0) // Saldo disponible
+    private val _totalHoldingsValue = MutableLiveData<Double>(0.0) // Valor total de las holdings
+    private val _cryptoList = CryptoProvider.cryptoList.toMutableList() // Lista de criptomonedas
+    private val _transactionHistory = MutableLiveData<MutableList<Transaction>>(mutableListOf()) // Historial de transacciones
+    private val _holdingsList = MutableLiveData<MutableList<Holdings>>(mutableListOf()) // Lista de holdings
+
+    val availableBalance: LiveData<Double>
+        get() = _availableBalance
+
+    val totalHoldingsValue: LiveData<Double>
+        get() = _totalHoldingsValue
 
     val cryptoList: List<Crypto>
         get() = _cryptoList
@@ -24,10 +32,50 @@ class CryptoViewModel : ViewModel() {
     val holdingsList: LiveData<MutableList<Holdings>>
         get() = _holdingsList
 
-    fun addTransaction(transaction: Transaction) {
+
+    // Agregar saldo
+    fun addBalance(amount: Double) {
+        _availableBalance.value = (_availableBalance.value ?: 0.0) + amount
+    }
+
+    // Método para retirar saldo
+    fun withdrawBalance(amount: Double): Boolean {
+        val currentBalance = _availableBalance.value ?: 0.0
+        if (amount <= 0) {
+            return false // Cantidad inválida
+        }
+        if (currentBalance < amount) {
+            return false // Saldo insuficiente
+        }
+
+        _availableBalance.value = currentBalance - amount
+        return true
+    }
+
+    // Agregar transacción
+    fun addTransaction(transaction: Transaction): Boolean {
+        if (transaction.type == TransactionType.BUY) {
+            val totalCost = transaction.quantity * transaction.pricePerUnit
+            if (!withdrawBalance(totalCost)) {
+                return false // No hay suficiente saldo
+            }
+        } else { // SELL
+            val totalRevenue = transaction.quantity * transaction.pricePerUnit
+            addBalance(totalRevenue)
+        }
+
         _transactionHistory.value?.add(transaction)
         _transactionHistory.value = _transactionHistory.value // Notificar cambios
         updateHoldings(transaction)
+        return true
+    }
+
+    // Calcular el valor total de las holdings
+    private fun calculateTotalHoldingsValue() {
+        val totalValue = _holdingsList.value?.sumOf { holding ->
+            holding.totalQuantity * getCryptoPrice(holding.symbol)
+        } ?: 0.0
+        _totalHoldingsValue.value = totalValue
     }
 
     private fun updateHoldings(transaction: Transaction) {
@@ -66,6 +114,7 @@ class CryptoViewModel : ViewModel() {
         // Filtrar holdings con cantidad mayor a cero
         _holdingsList.value = holdingsMap.values.filter { it.totalQuantity > 0 }.toMutableList()
         calculateHoldings()
+        calculateTotalHoldingsValue() // Calcular el valor total de los holdings
     }
 
     private fun calculateHoldings() {

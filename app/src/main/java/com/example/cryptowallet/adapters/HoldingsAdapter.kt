@@ -11,12 +11,14 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptowallet.R
 import com.example.cryptowallet.models.Holdings
 import com.example.cryptowallet.models.Transaction
 import com.example.cryptowallet.models.TransactionType
 import com.example.cryptowallet.viewModel.CryptoViewModel
+import java.text.DecimalFormat
 import java.util.Calendar
 import java.util.Date
 
@@ -66,10 +68,24 @@ class HoldingsAdapter(
             logoImageView.setImageResource(holdings.logo)
             nameTextView.text = "${holdings.name} (${holdings.symbol})" // Nombre y símbolo juntos
             priceTextView.text = "$${viewModel.getCryptoPrice(holdings.symbol)}" // Precio desde Crypto model
-            averagePriceTextView.text = "Avg buy price: $${holdings.averagePrice}"
-            amountTextView.text = "${holdings.totalQuantity}"
-            valueTextView.text = "$${holdings.totalQuantity * viewModel.getCryptoPrice(holdings.symbol)}" // Valor total
-            profitLossTextView.text = "$${holdings.profitLoss}"
+
+            // Crear un DecimalFormat para cantidades (4 decimales)
+            val quantityFormat = DecimalFormat("#,##0.00##")
+
+            // Crear un DecimalFormat para moneda (2 decimales)
+            val currencyFormat = DecimalFormat("#,##0.00")
+
+            averagePriceTextView.text = "Avg buy price: $ ${currencyFormat.format(holdings.averagePrice)}"
+            amountTextView.text = "${quantityFormat.format(holdings.totalQuantity)} ${holdings.symbol}"
+            valueTextView.text = "$${currencyFormat.format(holdings.totalQuantity * viewModel.getCryptoPrice(holdings.symbol))}" // Valor total
+            profitLossTextView.text = "$${currencyFormat.format(holdings.profitLoss)}"
+
+            // Cambiar el color según pérdidas o ganancias
+            if (holdings.profitLoss > 0) {
+                profitLossTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_green_dark))
+            } else if (holdings.profitLoss < 0) {
+                profitLossTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_red_dark))
+            }
         }
     }
 

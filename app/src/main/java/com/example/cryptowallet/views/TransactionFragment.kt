@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptowallet.R
@@ -24,6 +25,9 @@ class TransactionFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_transaction, container, false)
         recyclerView = view.findViewById(R.id.recyclerViewTransaction)
         recyclerView.layoutManager = LinearLayoutManager(context)
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
+
         return view
     }
 
@@ -31,5 +35,6 @@ class TransactionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[CryptoViewModel::class.java]
         recyclerView.adapter = TransactionAdapter(viewModel.transactionHistory.value ?: emptyList())
+
     }
 }

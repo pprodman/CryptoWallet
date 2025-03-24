@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptowallet.R
 import com.example.cryptowallet.models.Transaction
 import com.example.cryptowallet.models.TransactionType
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -50,10 +51,15 @@ class TransactionAdapter(private val transactionList: List<Transaction>) :
             } else if (transaction.type == TransactionType.SELL) {
                 typeTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_red_dark))
             }
+            // Crear un DecimalFormat para cantidades (4 decimales)
+            val quantityFormat = DecimalFormat("#,##0.00##")
 
-            quantityTextView.text = "Amount: ${transaction.quantity}"
+            // Crear un DecimalFormat para moneda (2 decimales)
+            val currencyFormat = DecimalFormat("#,##0.00")
+
+            quantityTextView.text = "Amount: ${quantityFormat.format(transaction.quantity)}"
             val totalValue = transaction.quantity * transaction.pricePerUnit
-            valueTextView.text = "Value: $${totalValue}" // Calculate total value
+            valueTextView.text = "Value: $ ${currencyFormat.format(totalValue)}"
             val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             dateTextView.text = dateFormat.format(transaction.date)
         }

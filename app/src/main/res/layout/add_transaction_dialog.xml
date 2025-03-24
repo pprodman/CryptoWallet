@@ -88,4 +88,14 @@
             android:textColor="@android:color/white"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
+
+    <!-- Saldo disponible -->
+    <TextView
+        android:id="@+id/balanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginTop="12dp"
+        android:textColor="@android:color/darker_gray"
+        tools:text="Saldo disponible:" />
 </LinearLayout>

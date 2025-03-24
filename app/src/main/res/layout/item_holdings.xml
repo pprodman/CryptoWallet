@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="6dp">
+    android:backgroundTint="@color/recview_grey"
+    app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -50,17 +50,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/darker_grey"
                 tools:text="$60,000" />
 
             <TextView
                 android:id="@+id/averageBuyPriceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 android:layout_marginTop="10dp"
-                android:textColor="#0743DE"
-                tools:text="Avg buy price: $60,000" />
+                android:textColor="@color/darker_grey"
+                tools:text="AVG Buy Price: $ 60,000" />
         </LinearLayout>
 
         <!-- Cantidad, Valor y Pérdidas/Ganancias -->
@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/darker_grey"
                 tools:text="$30,000" />
 
             <TextView

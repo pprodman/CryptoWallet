@@ -126,6 +126,9 @@ class CryptoAdapter(
             .setView(dialogView)
             .create()
             .apply {
+                // Hacer el fondo del diálogo transparente
+                window?.setBackgroundDrawableResource(android.R.color.transparent)
+                // Configurar botones
                 cancelButton.setOnClickListener { dismiss() }
                 addButton.setOnClickListener {
                     val quantity = quantityInput.text.toString().toDoubleOrNull() ?: 0.0

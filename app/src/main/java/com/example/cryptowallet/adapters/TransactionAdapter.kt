@@ -47,9 +47,9 @@ class TransactionAdapter(private val transactionList: List<Transaction>) :
 
             // Cambiar el color según el tipo de transacción
             if (transaction.type == TransactionType.BUY) {
-                typeTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_green_dark))
+                typeTextView.setTextColor(ContextCompat.getColor(itemView.context, R.color.green))
             } else if (transaction.type == TransactionType.SELL) {
-                typeTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_red_dark))
+                typeTextView.setTextColor(ContextCompat.getColor(itemView.context, R.color.red))
             }
             // Crear un DecimalFormat para cantidades (4 decimales)
             val quantityFormat = DecimalFormat("#,##0.00##")

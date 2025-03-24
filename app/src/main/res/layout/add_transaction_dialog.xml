@@ -33,7 +33,7 @@
         android:id="@+id/quantityInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cantidad"
+        android:hint="Amount"
         android:inputType="numberDecimal"
         android:layout_marginTop="12dp"
         android:padding="8dp"
@@ -44,7 +44,7 @@
         android:id="@+id/priceInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Precio de compra"
+        android:hint="Buy price"
         android:inputType="numberDecimal"
         android:layout_marginTop="8dp"
         android:padding="8dp"
@@ -55,7 +55,7 @@
         android:id="@+id/dateInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Fecha de compra"
+        android:hint="Buy Date"
         android:layout_marginTop="8dp"
         android:padding="8dp"
         android:background="@android:drawable/editbox_background"
@@ -75,7 +75,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancelar"
+            android:text="CANCEL"
             android:backgroundTint="@android:color/darker_gray" />
 
         <Button
@@ -83,8 +83,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Añadir"
-            android:backgroundTint="@android:color/holo_green_dark"
+            android:text="ACCEPT"
+            android:backgroundTint="@color/green"
             android:textColor="@android:color/white"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
@@ -97,5 +97,5 @@
         android:textSize="14sp"
         android:layout_marginTop="12dp"
         android:textColor="@android:color/darker_gray"
-        tools:text="Saldo disponible:" />
+        tools:text="Available Balance:" />
 </LinearLayout>

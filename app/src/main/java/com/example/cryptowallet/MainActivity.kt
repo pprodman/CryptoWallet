@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity() {
         val headerView = navView.getHeaderView(0)
         val spinner = headerView.findViewById<Spinner>(R.id.spinner)
 
-        val email = arrayOf("carladom@gmail.com", "alu123@ieselcaminas.org", "correocarla@gmail.es")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, email)
+        val email = arrayOf("michael.saylor@gmail.com", "btc@microstrategy.com")
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, email)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
     }

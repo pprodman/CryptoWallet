@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/marketFragment"
-        android:icon="@drawable/dot"
-        android:title="Market" />
+        android:icon="@drawable/ic_crypto_list"
+        android:title="Crytocurrencies" />
 
     <item
         android:id="@+id/walletFragment"
-        android:icon="@drawable/ada"
+        android:icon="@drawable/ic_wallet_icon"
         android:title="Wallet" />
 
     <item
         android:id="@+id/transactionFragment"
-        android:icon="@drawable/usdt"
+        android:icon="@drawable/ic_transaction_icon"
         android:title="Transactions" />
 
 </menu>

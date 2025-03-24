@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="176dp"
-    android:background="@drawable/ada"
+    android:layout_height="200dp"
+    android:background="@drawable/fondo_perfil"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -16,13 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/btc"/>
+            android:src="@drawable/michael_saylor"/>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatSpinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

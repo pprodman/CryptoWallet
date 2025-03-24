@@ -95,19 +95,26 @@ class HoldingsFragment : Fragment() {
             .setView(dialogView)
             .create()
             .apply {
+                // Hacer el fondo del diálogo transparente
+                window?.setBackgroundDrawableResource(android.R.color.transparent)
+                // Configurar botones
                 cancelButton.setOnClickListener { dismiss() }
                 addButton.setOnClickListener {
                     val amount = amountInput.text.toString().toDoubleOrNull() ?: 0.0
                     if (amount > 0) {
                         viewModel.addBalance(amount)
-                        Toast.makeText(requireContext(),
+                        Toast.makeText(
+                            requireContext(),
                             "Balance added: $ ${currencyFormat.format(amount)}",
-                            Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_SHORT
+                        ).show()
                         dismiss()
                     } else {
-                        Toast.makeText(requireContext(),
+                        Toast.makeText(
+                            requireContext(),
                             "Please enter a valid amount",
-                            Toast.LENGTH_SHORT).show()
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
                 show()
@@ -118,6 +125,7 @@ class HoldingsFragment : Fragment() {
     private fun showWithdrawBalanceDialog() {
         val dialogView = LayoutInflater.from(requireContext())
             .inflate(R.layout.withdraw_saldo_dialog, null)
+
 
         val currentBalanceText = dialogView.findViewById<TextView>(R.id.currentBalanceText)
         val amountInput = dialogView.findViewById<EditText>(R.id.amountInput)
@@ -132,6 +140,9 @@ class HoldingsFragment : Fragment() {
             .setView(dialogView)
             .create()
             .apply {
+                // Hacer el fondo del diálogo transparente
+                window?.setBackgroundDrawableResource(android.R.color.transparent)
+                // Configurar botones
                 cancelButton.setOnClickListener { dismiss() }
                 withdrawButton.setOnClickListener {
                     val amount = amountInput.text.toString().toDoubleOrNull() ?: 0.0
@@ -156,7 +167,6 @@ class HoldingsFragment : Fragment() {
                             Toast.LENGTH_SHORT).show()
                         dismiss()
                     } else {
-                        // Este caso no debería ocurrir debido a las validaciones anteriores
                         Toast.makeText(requireContext(),
                             "Failed to withdraw. Please try again.",
                             Toast.LENGTH_SHORT).show()

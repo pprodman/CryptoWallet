@@ -67,7 +67,6 @@ class HoldingsAdapter(
         fun bind(holdings: Holdings) {
             logoImageView.setImageResource(holdings.logo)
             nameTextView.text = "${holdings.name} (${holdings.symbol})" // Nombre y símbolo juntos
-            priceTextView.text = "$${viewModel.getCryptoPrice(holdings.symbol)}" // Precio desde Crypto model
 
             // Crear un DecimalFormat para cantidades (4 decimales)
             val quantityFormat = DecimalFormat("#,##0.00##")
@@ -75,16 +74,17 @@ class HoldingsAdapter(
             // Crear un DecimalFormat para moneda (2 decimales)
             val currencyFormat = DecimalFormat("#,##0.00")
 
-            averagePriceTextView.text = "Avg buy price: $ ${currencyFormat.format(holdings.averagePrice)}"
+            priceTextView.text = "$ ${currencyFormat.format(viewModel.getCryptoPrice(holdings.symbol))}" // Precio desde Crypto model
+            averagePriceTextView.text = "AVG Buy Price: $ ${currencyFormat.format(holdings.averagePrice)}"
             amountTextView.text = "${quantityFormat.format(holdings.totalQuantity)} ${holdings.symbol}"
-            valueTextView.text = "$${currencyFormat.format(holdings.totalQuantity * viewModel.getCryptoPrice(holdings.symbol))}" // Valor total
-            profitLossTextView.text = "$${currencyFormat.format(holdings.profitLoss)}"
+            valueTextView.text = "$ ${currencyFormat.format(holdings.totalQuantity * viewModel.getCryptoPrice(holdings.symbol))}" // Valor total
+            profitLossTextView.text = "$ ${currencyFormat.format(holdings.profitLoss)}"
 
             // Cambiar el color según pérdidas o ganancias
             if (holdings.profitLoss > 0) {
-                profitLossTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_green_dark))
+                profitLossTextView.setTextColor(ContextCompat.getColor(itemView.context, R.color.green))
             } else if (holdings.profitLoss < 0) {
-                profitLossTextView.setTextColor(ContextCompat.getColor(itemView.context, android.R.color.holo_red_dark))
+                profitLossTextView.setTextColor(ContextCompat.getColor(itemView.context, R.color.red))
             }
         }
     }
@@ -106,8 +106,8 @@ class HoldingsAdapter(
 
         logoImageView.setImageResource(holdings.logo)
         symbolTextView.text = holdings.symbol
-        quantityInput.hint = "Cantidad disponible: ${holdings.totalQuantity}" // Usando totalQuantity
-        priceInput.hint = "Precio de venta"
+        quantityInput.hint = "Available amount: ${holdings.totalQuantity}" // Usando totalQuantity
+        priceInput.hint = "Sell price"
 
         val calendar = Calendar.getInstance()
         val datePickerDialog = DatePickerDialog(context, { _, year, month, dayOfMonth ->
@@ -123,6 +123,9 @@ class HoldingsAdapter(
             .setView(dialogView)
             .create()
             .apply {
+                // Hacer el fondo del diálogo transparente
+                window?.setBackgroundDrawableResource(android.R.color.transparent)
+                // Configurar botones
                 cancelButton.setOnClickListener { dismiss() }
                 addButton.setOnClickListener {
                     val quantity = quantityInput.text.toString().toDoubleOrNull() ?: 0.0
@@ -130,7 +133,7 @@ class HoldingsAdapter(
                     val date = calendar.timeInMillis
 
                     if (quantity > holdings.totalQuantity) { // Usando totalQuantity
-                        Toast.makeText(context, "Cantidad insuficiente", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Insufficient amount", Toast.LENGTH_SHORT).show()
                         return@setOnClickListener
                     }
 

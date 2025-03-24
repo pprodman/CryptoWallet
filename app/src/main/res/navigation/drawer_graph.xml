@@ -7,20 +7,16 @@
     <fragment
         android:id="@+id/marketFragment"
         android:name="com.example.cryptowallet.views.MarketFragment"
-        android:label="Market"
+        android:label="Cryptocurrencies"
         tools:layout="@layout/fragment_market" />
     <fragment
         android:id="@+id/walletFragment"
         android:name="com.example.cryptowallet.views.HoldingsFragment"
-        android:label="Wallet"
+        android:label="My Wallet"
         tools:layout="@layout/fragment_holdings" />
     <fragment
         android:id="@+id/transactionFragment"
         android:name="com.example.cryptowallet.views.TransactionFragment"
-        android:label="Transaction"
+        android:label="Transactions"
         tools:layout="@layout/fragment_transaction" />
-    <fragment
-        android:id="@+id/dialogTransactionFragment"
-        android:name="com.example.cryptowallet.views.TransactionDialogFragment"
-        tools:layout="@layout/add_transaction_dialog" />
 </navigation>

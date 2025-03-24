@@ -13,7 +13,7 @@ class CryptoViewModel : ViewModel() {
 
     private val _availableBalance = MutableLiveData<Double>(0.0) // Saldo disponible
     private val _totalHoldingsValue = MutableLiveData<Double>(0.0) // Valor total de las holdings
-    private val _cryptoList = CryptoProvider.cryptoList.toMutableList() // Lista de criptomonedas
+    private val _cryptoList = CryptoProvider.cryptoList// Lista de criptomonedas
     private val _transactionHistory = MutableLiveData<MutableList<Transaction>>(mutableListOf()) // Historial de transacciones
     private val _holdingsList = MutableLiveData<MutableList<Holdings>>(mutableListOf()) // Lista de holdings
 

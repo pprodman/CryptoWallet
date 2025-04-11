@@ -30,8 +30,7 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 ## 📂 Manuales
 
 - [Tutorial](./TUTORIAL.md)
-- Guia de referencia 2
-
+- [Guia de referencia[(./GUIA_REFERENCIA.md)
 
 ## 🚀 Instalación y Ejecución
 

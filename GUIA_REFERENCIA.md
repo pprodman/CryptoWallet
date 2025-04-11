@@ -182,13 +182,13 @@ res/                            # 🎨 Recursos
 3.  Usuario introduce datos y confirma.
 4.  `CryptoAdapter` llama a `viewModel.addTransaction(...)`.
 5.  `CryptoViewModel`:
-    a. Valida saldo (`withdrawBalance`).
-    b. Si ok, resta costo a `_availableBalance`.
-    c. **Crea** `Transaction`.
-    d. Añade a `_transactionHistory` (y ordena).
-    e. Llama a `updateHoldings(newTransaction)`.
-    f. `updateHoldings`: **Crea/Actualiza** `Holdings` en `_holdingsList`.
-    g. Llama a `calculateHoldings()` y `calculateTotalHoldingsValue()`.
+    - a. Valida saldo (`withdrawBalance`).
+    - b. Si ok, resta costo a `_availableBalance`.
+    - c. **Crea** `Transaction`.
+    - d. Añade a `_transactionHistory` (y ordena).
+    - e. Llama a `updateHoldings(newTransaction)`.
+    - f. `updateHoldings`: **Crea/Actualiza** `Holdings` en `_holdingsList`.
+    - g. Llama a `calculateHoldings()` y `calculateTotalHoldingsValue()`.
 6.  `LiveData` modificados notifican a los `Fragments`.
 7.  `HoldingsFragment` y `TransactionFragment` actualizan sus vistas.
 
@@ -196,10 +196,10 @@ res/                            # 🎨 Recursos
 
 1.  Ocurre tras transacción (`updateHoldings` llama a `calculateHoldings`).
 2.  `CryptoViewModel.calculateHoldings()`:
-    a. Itera sobre `holdingsList`.
-    b. Obtiene precio actual (`getCryptoPrice`).
-    c. Calcula P/L para cada holding.
-    d. Actualiza `holding.profitLoss` (idealmente creando nueva instancia con `copy()`).
+    - a. Itera sobre `holdingsList`.
+    - b. Obtiene precio actual (`getCryptoPrice`).
+    - c. Calcula P/L para cada holding.
+    - d. Actualiza `holding.profitLoss` (idealmente creando nueva instancia con `copy()`).
 3.  Actualiza `_holdingsList` para notificar cambios.
 4.  Suma P/L individuales y actualiza `_totalProfitLoss`.
 

@@ -23,7 +23,6 @@ Al abrir la aplicación, verás la pantalla principal (probablemente el Mercado 
 *   👤 **Selector de Cuenta (Spinner):** En la parte superior del menú lateral, puedes ver un selector (Spinner) con direcciones de correo electrónico (ejemplo).
 
 <img src="https://github.com/pprodman/CryptoWallet/blob/master/misc/mainmenu.png" alt="Main Menu" width="250"/>
-![Vista de la pantalla del mercado en CryptoWallet](../misc/mainmenu.png)
 
 ---
 
@@ -39,8 +38,8 @@ Esta sección te muestra una lista de criptomonedas disponibles con información
     *   **💲 Price:** El precio actual simulado por unidad.
 *   **🔍 Buscar:** Utiliza la barra de búsqueda en la parte superior para filtrar la lista por nombre o símbolo. Escribe "Bit" y verás cómo la lista se reduce a las criptomonedas que coinciden.
 
-`[IMAGEN: Captura de pantalla de la pantalla Market, mostrando la lista y señalando la barra de búsqueda.]`
-`[IMAGEN: Captura de pantalla mostrando resultados filtrados después de usar la búsqueda.]`
+<img src="https://github.com/pprodman/CryptoWallet/blob/master/misc/market.png" alt="Market" width="250"/>
+<img src="https://github.com/pprodman/CryptoWallet/blob/master/misc/marketsearch.png" alt="Market Seach" width="250"/>
 
 ### 🌱 Cómo Comprar Criptomonedas:
 

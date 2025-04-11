@@ -23,7 +23,7 @@ Al abrir la aplicación, verás la pantalla principal (probablemente el Mercado 
 *   👤 **Selector de Cuenta (Spinner):** En la parte superior del menú lateral, puedes ver un selector (Spinner) con direcciones de correo electrónico (ejemplo).
 
 <img src="https://github.com/pprodman/CryptoWallet/blob/master/misc/mainmenu.png" alt="Main Menu" width="250"/>
-![Vista de la pantalla del mercado en CryptoWallet](CryptoWallet/blob/master/misc/mainmenu.png)
+![Vista de la pantalla del mercado en CryptoWallet](../misc/mainmenu.png)
 
 ---
 

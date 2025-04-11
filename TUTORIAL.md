@@ -58,7 +58,7 @@ Esta sección te muestra una lista de criptomonedas disponibles con información
 ### 🌱 Cómo Comprar Criptomonedas:
 
 1.  **👆 Selecciona una Cripto:** En la pantalla "Market", toca la fila de la criptomoneda que deseas comprar (por ejemplo, Bitcoin).
-2.  ** P̶o̶p̶u̶p̶  ** Abre el Diálogo de Compra:** Se abrirá una ventana emergente (diálogo).
+2.  **Abre el Diálogo de Compra:** Se abrirá una ventana emergente (diálogo).
     *   Verás el logo y símbolo de la cripto.
     *   Se mostrará tu **💰 Saldo Disponible (Available Balance)** actual.
     *   **🔢 Quantity:** Introduce la cantidad de criptomoneda que quieres comprar (ej. 0.05).
@@ -135,7 +135,7 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
 ### 💸 Cómo Vender Criptomonedas:
 
 1.  **👆 Selecciona una Tenencia:** En la pantalla "Holdings", toca la fila de la criptomoneda que deseas vender.
-2.  ** P̶o̶p̶u̶p̶  ** Abre el Diálogo de Venta:** Se abrirá un diálogo similar al de compra.
+2.  **Abre el Diálogo de Venta:** Se abrirá un diálogo similar al de compra.
     *   Verás el logo y símbolo.
     *   **🔢 Quantity:** Introduce la cantidad a vender (verás la cantidad máxima disponible). **¡No puedes vender más de lo que tienes!**
     *   **🏷️ Price:** Introduce el precio por unidad al que estás vendiendo.

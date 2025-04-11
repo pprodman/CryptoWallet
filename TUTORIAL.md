@@ -38,8 +38,16 @@ Esta sección te muestra una lista de criptomonedas disponibles con información
     *   **💲 Price:** El precio actual simulado por unidad.
 *   **🔍 Buscar:** Utiliza la barra de búsqueda en la parte superior para filtrar la lista por nombre o símbolo. Escribe "Bit" y verás cómo la lista se reduce a las criptomonedas que coinciden.
 
-![Market](misc/market.png)
-![Market Seach](misc/marketsearch.png)
+<table>
+  <tr>
+    <td>
+      <img src="misc/market.png" alt="Market" width="250"/>
+    </td>
+    <td>
+      <img src="misc/marketsearch.png" alt="Market Seach" width="250"/>
+    </td>
+  </tr>
+</table>
 
 
 ### 🌱 Cómo Comprar Criptomonedas:

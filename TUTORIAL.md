@@ -68,7 +68,13 @@ Esta sección te muestra una lista de criptomonedas disponibles con información
     *   La aplicación comprobará si tienes saldo suficiente. Si no, recibirás un mensaje 🚫.
     *   Si tienes saldo, la transacción se registrará, tu saldo disminuirá y la criptomoneda aparecerá en tu sección "Holdings". ¡Éxito! ✨
 
-`[IMAGEN: Captura de pantalla del diálogo de compra (add_transaction_dialog.xml), con campos para cantidad, precio y fecha señalados.]`
+<table>
+  <tr>
+    <td>
+      <img src="misc/buycrypto.png" alt="Buy Crypto" width="250"/>
+    </td>
+  </tr>
+</table>
 
 ---
 

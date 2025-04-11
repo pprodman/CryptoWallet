@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,16 @@ import com.example.cryptowallet.adapters.HoldingsAdapter
 import com.example.cryptowallet.viewModel.CryptoViewModel
 import java.text.DecimalFormat
 
+/**
+ * Fragmento que muestra el listado de criptomonedas en cartera.
+ * Carga la información en los items del `RecyclerView` a través del `Adapter` y la muestra en la interfaz de usuario.
+ * Permite al usuario vender criptomonedas y agregar o retirar saldo.
+ *
+ * @see viewModel Para gestionar la lógica de la aplicación.
+ * @see recyclerView Para mostrar la lista de criptomonedas en cartera.
+ * @see holdingsAdapter Para mostrar los datos en el RecyclerView.
+ * @see depositTextView Para mostrar el saldo actual.
+ */
 class HoldingsFragment : Fragment() {
 
     private lateinit var viewModel: CryptoViewModel
@@ -28,6 +39,14 @@ class HoldingsFragment : Fragment() {
     // Crear un DecimalFormat para moneda (2 decimales)
     private val currencyFormat = DecimalFormat("#,##0.00")
 
+    /**
+     * Método que crea la vista del fragmento.
+     * Añade un botón para añadir saldo y otro para retirar saldo.
+     *
+     * @param inflater El objeto LayoutInflater para inflar la vista.
+     * @param container El contenedor del fragmento.
+     * @param savedInstanceState El estado guardado del fragmento, si existe.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,13 +70,17 @@ class HoldingsFragment : Fragment() {
         return view
     }
 
+    /**
+     * Método que se llama después de que la vista del fragmento haya sido creada.
+     * Se encarga de inicializar el ViewModel, cargar los detalles de la cartera y configurar el comportamiento de la interfaz de usuario.
+     *
+     * @param view La vista raíz del fragmento.
+     * @param savedInstanceState El estado guardado del fragmento, si existe.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(requireActivity())[CryptoViewModel::class.java]
-
-        setupRecyclerView()
-        observeHoldings()
 
         // Observar cambios en el saldo
         viewModel.availableBalance.observe(viewLifecycleOwner) { balance ->
@@ -69,20 +92,48 @@ class HoldingsFragment : Fragment() {
             val totalHoldingsValueTextView = view.findViewById<TextView>(R.id.totalHoldingsValueTextView)
             totalHoldingsValueTextView.text = "$ ${currencyFormat.format(totalValue)}"
         }
+
+        // Observar cambios en el total de profit/loss
+        viewModel.totalProfitLoss.observe(viewLifecycleOwner) { totalProfitLoss ->
+            val totalProfitLossTextView = view.findViewById<TextView>(R.id.totalProfitLossTextView)
+
+            // Cambiar el color y el texto según pérdidas o ganancias
+            if (totalProfitLoss > 0) {
+                totalProfitLossTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.green))
+                totalProfitLossTextView.text = "Total Profit: $ ${currencyFormat.format(totalProfitLoss)}"
+            } else if (totalProfitLoss < 0) {
+                totalProfitLossTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
+                totalProfitLossTextView.text = "Total Loss: $ ${currencyFormat.format(totalProfitLoss)}"
+            } else {
+                totalProfitLossTextView.setTextColor(ContextCompat.getColor(requireContext(), R.color.darker_grey))
+                totalProfitLossTextView.text = "Total Profit/Loss: $ ${currencyFormat.format(totalProfitLoss)}"
+            }
+        }
+
+        setupRecyclerView()
+        observeHoldings()
     }
 
+    /**
+     * Configura el `RecyclerView` con un `LinearLayoutManager` y un `Adapter` personalizado.
+     */
     private fun setupRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
+    /**
+     * Observa los cambios en la lista de holdings y actualiza el `Adapter` del `RecyclerView`.
+     */
     private fun observeHoldings() {
         viewModel.holdingsList.observe(viewLifecycleOwner) { holdingsList ->
-            holdingsAdapter = HoldingsAdapter(holdingsList, requireContext(), viewModel)
+            holdingsAdapter = HoldingsAdapter(holdingsList, viewModel, requireContext())
             recyclerView.adapter = holdingsAdapter
         }
     }
 
-    // Implementación de la función showAddBalanceDialog
+    /**
+     * Muestra el diálogo para agregar saldo.
+     */
     private fun showAddBalanceDialog() {
         val dialogView = LayoutInflater.from(requireContext())
             .inflate(R.layout.add_saldo_dialog, null)
@@ -121,7 +172,9 @@ class HoldingsFragment : Fragment() {
             }
     }
 
-    // Implementación de la función para mostrar el diálogo de retirar saldo
+    /**
+     * Función que muestra el diálogo para retirar saldo.
+     */
     private fun showWithdrawBalanceDialog() {
         val dialogView = LayoutInflater.from(requireContext())
             .inflate(R.layout.withdraw_saldo_dialog, null)

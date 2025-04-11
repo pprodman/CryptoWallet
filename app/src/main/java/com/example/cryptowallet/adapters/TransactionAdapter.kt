@@ -14,22 +14,50 @@ import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class TransactionAdapter(private val transactionList: List<Transaction>) :
-    RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
+/**
+ * Adaptador de RecyclerView para mostrar una lista de transacciones.
+ * Permite mostrar los detalles de cada transacción.
+ *
+ * @param transactionList Lista de transacciones a mostrar.
+ */
+class TransactionAdapter(
+    private val transactionList: List<Transaction>
+) : RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
 
+    /**
+     * Crea y retorna un nuevo ViewHolder para las transacciones.
+     *
+     * @param parent El contenedor de la vista en el que se creará el ViewHolder.
+     * @param viewType El tipo de vista para el ViewHolder.
+     * @return Un nuevo objeto TransactionViewHolder.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_transaction, parent, false)
         return TransactionViewHolder(view)
     }
 
+    /**
+     * Enlaza los datos de una transacción al ViewHolder.
+     *
+     * @param holder El ViewHolder donde se enlazará la transacción.
+     * @param position La posición de la transacción en la lista.
+     */
     override fun onBindViewHolder(holder: TransactionViewHolder, position: Int) {
         val transaction = transactionList[position]
         holder.bind(transaction)
     }
 
+    /**
+     * @return La cantidad de transacciones en la lista.
+     */
     override fun getItemCount(): Int = transactionList.size
 
+    /**
+     * ViewHolder para representar una transacción en la lista.
+     *
+     * @param itemView Vista de la transacción.
+     */
     inner class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val logoImageView: ImageView = itemView.findViewById(R.id.logoImageView)
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
@@ -39,6 +67,11 @@ class TransactionAdapter(private val transactionList: List<Transaction>) :
         private val valueTextView: TextView = itemView.findViewById(R.id.valueTextView)
         private val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
 
+        /**
+         * Enlaza los datos de una transacción al ViewHolder.
+         *
+         * @param transaction Transacción a mostrar.
+         */
         fun bind(transaction: Transaction) {
             logoImageView.setImageResource(transaction.logo)
             nameTextView.text = transaction.name

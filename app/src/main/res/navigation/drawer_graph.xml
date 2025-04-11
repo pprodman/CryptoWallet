@@ -7,10 +7,10 @@
     <fragment
         android:id="@+id/marketFragment"
         android:name="com.example.cryptowallet.views.MarketFragment"
-        android:label="Cryptocurrencies"
+        android:label="Cryto Market"
         tools:layout="@layout/fragment_market" />
     <fragment
-        android:id="@+id/walletFragment"
+        android:id="@+id/holdingsFragment"
         android:name="com.example.cryptowallet.views.HoldingsFragment"
         android:label="My Wallet"
         tools:layout="@layout/fragment_holdings" />

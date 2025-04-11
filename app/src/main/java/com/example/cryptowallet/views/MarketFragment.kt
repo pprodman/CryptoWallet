@@ -14,6 +14,16 @@ import com.example.cryptowallet.viewModel.CryptoViewModel
 import android.widget.SearchView
 import com.example.cryptowallet.models.Crypto
 
+/**
+ * Fragmento que muestra el listado de criptomonedas en el mercado.
+ * Carga la información en los items del `RecyclerView` a través del `Adapter` y la muestra en la interfaz de usuario.
+ * Permite al usuario comprar criptomonedas.
+ *
+ * @see viewModel Para gestionar la lógica de la aplicación.
+ * @see recyclerView Para mostrar la lista de criptomonedas en el mercado.
+ * @see searchView Para permitir la búsqueda de criptomonedas.
+ * @see originalCryptoList Para almacenar la lista original de criptomonedas.
+ */
 class MarketFragment : Fragment() {
 
     private lateinit var viewModel: CryptoViewModel
@@ -22,6 +32,13 @@ class MarketFragment : Fragment() {
     private lateinit var adapter: CryptoAdapter
     private var originalCryptoList: List<Crypto> = emptyList() // Store original list
 
+    /**
+     * Método que crea la vista del fragmento.
+     *
+     * @param inflater El objeto LayoutInflater para inflar la vista.
+     * @param container El contenedor del fragmento.
+     * @param savedInstanceState El estado guardado del fragmento, si existe.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +50,13 @@ class MarketFragment : Fragment() {
         return view
     }
 
+    /**
+     * Método que se llama después de que la vista del fragmento haya sido creada.
+     * Se encarga de inicializar el ViewModel, cargar los detalles de criptomonedas y configurar el comportamiento de la interfaz de usuario.
+     *
+     * @param view La vista raíz del fragmento.
+     * @param savedInstanceState El estado guardado del fragmento, si existe.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[CryptoViewModel::class.java]
@@ -44,6 +68,9 @@ class MarketFragment : Fragment() {
         setupSearchView() // Call setupSearchView
     }
 
+    /**
+     * Configura el `SearchView` para permitir la búsqueda de criptomonedas.
+     */
     private fun setupSearchView() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -57,6 +84,11 @@ class MarketFragment : Fragment() {
         })
     }
 
+    /**
+     * Filtra la lista de criptomonedas según el texto de búsqueda.
+     *
+     * @param query El texto de búsqueda.
+     */
     private fun filterCryptoList(query: String?) {
         val filteredList = if (query.isNullOrBlank()) {
             originalCryptoList // Show original list if query is empty

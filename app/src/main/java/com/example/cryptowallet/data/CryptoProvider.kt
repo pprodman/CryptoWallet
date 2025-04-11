@@ -3,6 +3,11 @@ package com.example.cryptowallet.data
 import com.example.cryptowallet.R
 import com.example.cryptowallet.models.Crypto
 
+/**
+ * Proveedor de datos para la lista de criptomonedas.
+ *
+ * @property cryptoList Lista de objetos Crypto.
+ */
 class CryptoProvider {
     companion object {
         val cryptoList = listOf<Crypto>(
@@ -10,7 +15,7 @@ class CryptoProvider {
             Crypto(2, R.drawable.eth, "Ethereum", "ETH", 2110.37),
             Crypto(3, R.drawable.xrp, "Ripple", "XRP", 2.47),
             Crypto(4, R.drawable.usdt, "Tether USDt", "USDT", 1.0),
-            Crypto(5, R.drawable.sol, "Solana", "SOL", 50.25),
+            Crypto(5, R.drawable.sol, "Solana", "SOL", 145.45),
             Crypto(6, R.drawable.bnb, "Binance Coin", "BNB", 638.08),
             Crypto(7, R.drawable.doge, "Dogecoin", "DOGE", 0.1886),
             Crypto(8, R.drawable.ada, "Cardano", "ADA", 0.7437),

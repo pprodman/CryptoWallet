@@ -15,11 +15,22 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.cryptowallet.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
+/**
+ * Actividad principal de la aplicación que maneja la navegación entre fragmentos mediante el componente `NavController` y controla la visibilidad y animación del `NavigationDrawer` dependiendo del fragmento activo.
+ */
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    /**
+     * Configuración de la barra de acción y el `NavigationDrawer`.
+     */
+    private lateinit var appBarConfiguration: AppBarConfiguration
+
+    /**
+     * Método llamado cuando se crea la actividad.
+     *
+     * @param savedInstanceState El estado guardado de la actividad, si existe.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -30,11 +41,17 @@ class MainActivity : AppCompatActivity() {
         setupSpinner()
     }
 
+    /**
+     * Configura la barra de herramientas.
+     */
     private fun setupToolbar() {
         val toolbar: Toolbar = binding.toolbar
         setSupportActionBar(toolbar)
     }
 
+    /**
+     * Configura el `NavigationDrawer` y el controlador de navegación.
+     */
     private fun setupNavigationDrawer() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -44,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.marketFragment, R.id.walletFragment),
+            setOf(R.id.marketFragment, R.id.holdingsFragment, R.id.transactionFragment),
             drawerLayout
         )
 
@@ -52,6 +69,9 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    /**
+     * Configura el `Spinner` para seleccionar el correo electrónico.
+     */
     private fun setupSpinner() {
         val navView: NavigationView = binding.navView
         val headerView = navView.getHeaderView(0)
@@ -63,6 +83,9 @@ class MainActivity : AppCompatActivity() {
         spinner.adapter = adapter
     }
 
+    /**
+     * Maneja la navegación hacia atrás.
+     */
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

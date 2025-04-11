@@ -4,10 +4,10 @@
     <item
         android:id="@+id/marketFragment"
         android:icon="@drawable/ic_crypto_list"
-        android:title="Crytocurrencies" />
+        android:title="Crypto Market" />
 
     <item
-        android:id="@+id/walletFragment"
+        android:id="@+id/holdingsFragment"
         android:icon="@drawable/ic_wallet_icon"
         android:title="Wallet" />
 

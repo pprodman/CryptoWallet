@@ -22,17 +22,38 @@ import java.text.DecimalFormat
 import java.util.Calendar
 import java.util.Date
 
+/**
+ * Adaptador de RecyclerView para mostrar una lista de criptomonedas en la wallet.
+ * Permite manejar la selección de una criptomoneda y su venta.
+ *
+ * @param holdingsList Lista de criptomonedas en la wallet.
+ * @param viewModel Modelo de vista para interactuar con la lógica de la aplicación.
+ * @param context Contexto de la actividad.
+ */
 class HoldingsAdapter(
     private val holdingsList: List<Holdings>,
-    private val context: Context,
-    private val viewModel: CryptoViewModel
+    private val viewModel: CryptoViewModel,
+    private val context: Context
 ) : RecyclerView.Adapter<HoldingsAdapter.HoldingViewHolder>() {
 
+    /**
+     * Crea y retorna un nuevo ViewHolder para las criptomonedas en la wallet.
+     *
+     * @param parent El contenedor de la vista en el que se creará el ViewHolder.
+     * @param viewType El tipo de vista para el ViewHolder.
+     * @return Un nuevo objeto HoldingViewHolder.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoldingViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_holdings, parent, false)
         return HoldingViewHolder(view)
     }
 
+    /**
+     * Enlaza los datos de una criptomoneda al ViewHolder y configura las acciones de clic.
+     *
+     * @param holder El ViewHolder donde se enlazará la criptomoneda.
+     * @param position La posición de la criptomoneda en la lista.
+     */
     override fun onBindViewHolder(holder: HoldingViewHolder, position: Int) {
         val holdings = holdingsList[position]
         holder.bind(holdings)
@@ -53,8 +74,17 @@ class HoldingsAdapter(
         }
     }
 
+    /**
+     * @return La cantidad de criptomonedas en la lista.
+     */
     override fun getItemCount(): Int = holdingsList.size
 
+
+    /**
+     * ViewHolder para representar una criptomoneda en la wallet.
+     *
+     * @param itemView Vista de la criptomoneda.
+     */
     inner class HoldingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val logoImageView: ImageView = itemView.findViewById(R.id.logoImageView)
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
@@ -64,6 +94,11 @@ class HoldingsAdapter(
         private val valueTextView: TextView = itemView.findViewById(R.id.valueTextView)
         private val profitLossTextView: TextView = itemView.findViewById(R.id.profitLossTextView)
 
+        /**
+         * Enlaza los datos de una criptomoneda al ViewHolder.
+         *
+         * @param holdings Criptomoneda a mostrar.
+         */
         fun bind(holdings: Holdings) {
             logoImageView.setImageResource(holdings.logo)
             nameTextView.text = "${holdings.name} (${holdings.symbol})" // Nombre y símbolo juntos
@@ -89,6 +124,13 @@ class HoldingsAdapter(
         }
     }
 
+    /**
+     * Función para mostrar el diálogo de venta de una criptomoneda.
+     *
+     * @param context Contexto de la actividad
+     * @param holdings Criptomoneda a vender
+     * @param onSell Función a ejecutar al vender la criptomoneda
+     */
     private fun showSellCryptoDialog(
         context: Context,
         holdings: Holdings,
@@ -108,6 +150,7 @@ class HoldingsAdapter(
         symbolTextView.text = holdings.symbol
         quantityInput.hint = "Available amount: ${holdings.totalQuantity}" // Usando totalQuantity
         priceInput.hint = "Sell price"
+        dateInput.hint = "Sell date"
 
         val calendar = Calendar.getInstance()
         val datePickerDialog = DatePickerDialog(context, { _, year, month, dayOfMonth ->

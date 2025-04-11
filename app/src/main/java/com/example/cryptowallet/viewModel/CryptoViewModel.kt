@@ -9,10 +9,14 @@ import com.example.cryptowallet.models.Holdings
 import com.example.cryptowallet.models.Transaction
 import com.example.cryptowallet.models.TransactionType
 
+/**
+ * ViewModel para manejar la lógica relacionada con las criptomonedas y sus detalles.
+ */
 class CryptoViewModel : ViewModel() {
 
     private val _availableBalance = MutableLiveData<Double>(0.0) // Saldo disponible
     private val _totalHoldingsValue = MutableLiveData<Double>(0.0) // Valor total de las holdings
+    private val _totalProfitLoss = MutableLiveData<Double>(0.0) // Pérdida o ganancia total
     private val _cryptoList = CryptoProvider.cryptoList// Lista de criptomonedas
     private val _transactionHistory = MutableLiveData<MutableList<Transaction>>(mutableListOf()) // Historial de transacciones
     private val _holdingsList = MutableLiveData<MutableList<Holdings>>(mutableListOf()) // Lista de holdings
@@ -22,6 +26,9 @@ class CryptoViewModel : ViewModel() {
 
     val totalHoldingsValue: LiveData<Double>
         get() = _totalHoldingsValue
+
+    val totalProfitLoss: LiveData<Double>
+        get() = _totalProfitLoss
 
     val cryptoList: List<Crypto>
         get() = _cryptoList
@@ -33,12 +40,20 @@ class CryptoViewModel : ViewModel() {
         get() = _holdingsList
 
 
-    // Agregar saldo
+    /**
+     * Agrega saldo al saldo disponible.
+     *
+     * @param amount La cantidad de saldo a agregar.
+     */
     fun addBalance(amount: Double) {
         _availableBalance.value = (_availableBalance.value ?: 0.0) + amount
     }
 
-    // Método para retirar saldo
+    /**
+     * Retira saldo del saldo disponible.
+     *
+     * @param amount La cantidad de saldo a retirar.
+     */
     fun withdrawBalance(amount: Double): Boolean {
         val currentBalance = _availableBalance.value ?: 0.0
         if (amount <= 0) {
@@ -52,7 +67,12 @@ class CryptoViewModel : ViewModel() {
         return true
     }
 
-    // Agregar transacción
+    /**
+     * Agrega una transacción de compra o venta al historial de transacciones.
+     *
+     * @param transaction La transacción a agregar.
+     * @return `true` si la transacción fue exitosa, `false` si falló (ej. saldo insuficiente).
+     */
     fun addTransaction(transaction: Transaction): Boolean {
         if (transaction.type == TransactionType.BUY) {
             val totalCost = transaction.quantity * transaction.pricePerUnit
@@ -64,13 +84,19 @@ class CryptoViewModel : ViewModel() {
             addBalance(totalRevenue)
         }
 
-        _transactionHistory.value?.add(transaction)
-        _transactionHistory.value = _transactionHistory.value // Notificar cambios
+        // Actualizar el historial de transacciones
+        val currentHistory = _transactionHistory.value ?: mutableListOf()
+        currentHistory.add(transaction)
+        currentHistory.sortByDescending { it.date } // Ordenar por fecha de transacción
+        _transactionHistory.value = currentHistory // Actualizar el valor del LiveData
+
         updateHoldings(transaction)
         return true
     }
 
-    // Calcular el valor total de las holdings
+    /**
+     * Calcula el valor total de los criptomonedas en la wallet.
+     */
     private fun calculateTotalHoldingsValue() {
         val totalValue = _holdingsList.value?.sumOf { holding ->
             holding.totalQuantity * getCryptoPrice(holding.symbol)
@@ -78,6 +104,11 @@ class CryptoViewModel : ViewModel() {
         _totalHoldingsValue.value = totalValue
     }
 
+    /**
+     * Actualiza la lista de criptomonedas en cartera según la transacción (compra o venta) realizada.
+     *
+     * @param transaction La transacción que se está procesando.
+     */
     private fun updateHoldings(transaction: Transaction) {
         val holdingsMap = _holdingsList.value?.associateBy { it.symbol }?.toMutableMap() ?: mutableMapOf()
 
@@ -117,14 +148,29 @@ class CryptoViewModel : ViewModel() {
         calculateTotalHoldingsValue() // Calcular el valor total de los holdings
     }
 
+    /**
+     * Calcula la pérdida o ganancia de cada criptomoneda en cartera.
+     */
     private fun calculateHoldings() {
+        var totalProfitLoss = 0.0 // Pérdida o ganancia total
+
         _holdingsList.value?.forEach { holding ->
             val currentPrice = getCryptoPrice(holding.symbol)
             holding.profitLoss = (currentPrice - holding.averagePrice) * holding.totalQuantity
+            totalProfitLoss += holding.profitLoss // Actualizar la pérdida o ganancia total
         }
-        _holdingsList.value = _holdingsList.value // Notificar cambios
+        // Actualizar la pérdida o ganancia total
+        _totalProfitLoss.value = totalProfitLoss
+
+        // Actualizar la lista de holdings
+        _holdingsList.value = _holdingsList.value
     }
 
+    /**
+     * Obtiene el precio actual de una criptomoneda por su símbolo.
+     *
+     * @param symbol El símbolo de la criptomoneda.
+     */
     fun getCryptoPrice(symbol: String): Double {
         return _cryptoList.find { it.symbol == symbol }?.price ?: 0.0
     }

@@ -21,18 +21,38 @@ import java.text.DecimalFormat
 import java.util.Calendar
 import java.util.Date
 
+/**
+ * Adaptador de RecyclerView para mostrar una lista de criptomonedas.
+ * Permite manejar la selección de una criptomoneda y su compra.
+ *
+ * @param cryptoList Lista de criptomonedas a mostrar.
+ * @param viewModel Modelo de vista para interactuar con la lógica de la aplicación.
+ * @param context Contexto de la actividad.
+ */
 class CryptoAdapter(
     private val cryptoList: List<Crypto>,
     private val viewModel: CryptoViewModel,
     private val context: Context
 ) : RecyclerView.Adapter<CryptoAdapter.CryptoViewHolder>() {
 
-
+    /**
+     * Crea y retorna un nuevo ViewHolder para las criptomonedas.
+     *
+     * @param parent El contenedor de la vista en el que se creará el ViewHolder.
+     * @param viewType El tipo de vista para el ViewHolder.
+     * @return Un nuevo objeto CrytoViewHolder.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_crypto, parent, false)
         return CryptoViewHolder(view)
     }
 
+    /**
+     * Enlaza los datos de una criptomoneda al ViewHolder y configura las acciones de clic.
+     *
+     * @param holder El ViewHolder donde se enlazará la criptomoneda.
+     * @param position La posición de la criptomoneda en la lista.
+     */
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         val crypto = cryptoList[position]
         holder.bind(crypto)
@@ -65,8 +85,16 @@ class CryptoAdapter(
         }
     }
 
+    /**
+     * @return La cantidad de criptomonedas en la lista.
+     */
     override fun getItemCount(): Int = cryptoList.size
 
+    /**
+     * ViewHolder para representar una criptomoneda en la lista.
+     *
+     * @param itemView Vista de la criptomoneda.
+     */
     inner class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val rankTextView: TextView = itemView.findViewById(R.id.rankTextView)
         private val logoImageView: ImageView = itemView.findViewById(R.id.logoImageView)
@@ -74,6 +102,11 @@ class CryptoAdapter(
         private val symbolTextView: TextView = itemView.findViewById(R.id.symbolTextView)
         private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
 
+        /**
+         * Enlaza los datos de una criptomoneda al ViewHolder.
+         *
+         * @param crypto Criptomoneda a mostrar.
+         */
         fun bind(crypto: Crypto) {
             rankTextView.text = "#${crypto.rank}"
             logoImageView.setImageResource(crypto.logo)
@@ -86,6 +119,15 @@ class CryptoAdapter(
         }
     }
 
+    /**
+     * Función para mostrar el diálogo de compra de una criptomoneda.
+     *
+     * @param context Contexto de la actividad
+     * @param logoResId ID de la imagen del logo
+     * @param symbol Símbolo de la criptomoneda
+     * @param availableBalance Saldo disponible
+     * @param onAdd Función a ejecutar al agregar la transacción
+     */
     private fun showBuyCryptoDialog(
         context: Context,
         logoResId: Int,

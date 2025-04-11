@@ -1,11 +1,11 @@
 # 📖 Guía de Referencia del Proyecto: CryptoWallet App 🪙
 
-1.  [ℹ️ Introducción](#1-ℹ️-introducción)
-2.  [🏗️ Patrón Arquitectónico: MVVM](#2-🏗️-patrón-arquitectónico-mvvm)
-3.  [📁 Estructura de Directorios (Paquetes)](#3-📁-estructura-de-directorios-paquetes)
-4.  [🧩 Componentes Principales y Responsabilidades](#4-🧩-componentes-principales-y-responsabilidades)
-5.  [🌊 Flujos de Datos](#5-🌊-flujos-de-datos)
-6.  [🔗 Dependencias](#6-🔗-dependencias)
+1.  [ℹ️ Introducción](#1-ℹ-introducción)
+2.  [🏗️ Patrón Arquitectónico: MVVM](#2--patrón-arquitectónico-mvvm)
+3.  [📁 Estructura de Directorios (Paquetes)](#3--estructura-de-directorios-paquetes)
+4.  [🧩 Componentes Principales y Responsabilidades](#4--componentes-principales-y-responsabilidades)
+5.  [🌊 Flujos de Datos](#5--flujos-de-datos)
+6.  [🔗 Dependencias](#6--dependencias)
 
 ## 1. ℹ️ Introducción
 

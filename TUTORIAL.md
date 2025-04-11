@@ -165,6 +165,12 @@ Esta pantalla muestra un registro de todas las compras y ventas que has realizad
     *   **💲 Value:** El valor total en $ de esa transacción específica.
     *   **🗓️ Date:** La fecha en que se realizó.
 
-`[IMAGEN: Captura de pantalla de la pantalla Transactions, mostrando algunas transacciones de compra y venta con sus detalles.]`
+<table>
+  <tr>
+    <td>
+      <img src="misc/transacciones.png" alt="Transactions" width="250"/>
+    </td>
+  </tr>
+</table>
 
 ---

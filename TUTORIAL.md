@@ -5,7 +5,7 @@
 1.  [🚀 Primeros Pasos y Navegación](#1-🚀-primeros-pasos-y-navegación)
 2.  [🛒 Explorando el Mercado (Market)](#2-🛒-explorando-el-mercado-market)
 3.  [📊 Gestionando tu Cartera (Holdings)](#3-📊-gestionando-tu-cartera-holdings)
-4.  [📜 Revisando tu Historial (Transactions)](#4-📜-revisando-tu-historial-transactions)
+4.  [📜 Revisando tu Historial (Transactions)](#4--revisando-tu-historial-transactions)
 
 **⚠️ Nota:** Esta aplicación utiliza datos de ejemplo y simula transacciones. No se maneja dinero real.
 

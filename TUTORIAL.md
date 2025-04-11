@@ -64,7 +64,7 @@ Esta sección te muestra una lista de criptomonedas disponibles con información
     *   **🔢 Quantity:** Introduce la cantidad de criptomoneda que quieres comprar (ej. 0.05).
     *   **🏷️ Price:** Introduce el precio por unidad al que estás comprando.
     *   **📅 Date:** Toca este campo para seleccionar la fecha de la transacción usando un calendario.
-3.  **✅ Confirma:** Toca el botón **"ADD"**.
+3.  **✅ Confirma:** Toca el botón **"ACCEPT"**.
     *   La aplicación comprobará si tienes saldo suficiente. Si no, recibirás un mensaje 🚫.
     *   Si tienes saldo, la transacción se registrará, tu saldo disminuirá y la criptomoneda aparecerá en tu sección "Holdings". ¡Éxito! ✨
 
@@ -140,7 +140,7 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
     *   **🔢 Quantity:** Introduce la cantidad a vender (verás la cantidad máxima disponible). **¡No puedes vender más de lo que tienes!**
     *   **🏷️ Price:** Introduce el precio por unidad al que estás vendiendo.
     *   **📅 Date:** Selecciona la fecha de la venta.
-3.  **✅ Confirma:** Toca el botón **"ADD"**.
+3.  **✅ Confirma:** Toca el botón **"ACCEPT"**.
     *   La app comprobará si la cantidad es válida 🚫.
     *   Si es válida, la transacción se registrará, tu saldo aumentará, y tu tenencia disminuirá (o desaparecerá si vendiste todo). ¡Éxito! ✨
 

@@ -22,7 +22,7 @@ Al abrir la aplicación, verás la pantalla principal (probablemente el Mercado 
     *   📜 **Transactions:** Para ver tu historial de compras y ventas.
 *   👤 **Selector de Cuenta (Spinner):** En la parte superior del menú lateral, puedes ver un selector (Spinner) con direcciones de correo electrónico (ejemplo).
 
-`[IMAGEN: Captura de pantalla con el Navigation Drawer abierto, señalando las opciones Market, Holdings, Transactions y el Spinner.]`
+<img src="https://github.com/pprodman/CryptoWallet/blob/master/misc/mainmenu.pn)" alt="Main Menu" width="250"/>
 
 ---
 

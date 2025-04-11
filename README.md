@@ -29,7 +29,7 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 
 ## 📂 Manuales
 
-- Tutorial 1
+- [Tutorial](./TUTORIAL.md)
 - Guia de referencia 2
 
 

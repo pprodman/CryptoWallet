@@ -94,7 +94,13 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
     *   **💰 Value:** El valor total actual de tu tenencia.
     *   **📊 Profit/Loss:** La ganancia o pérdida específica (🟢/🔴).
 
-`[IMAGEN: Captura de pantalla de la pantalla Holdings, señalando el resumen superior y una fila de ejemplo en la lista de tenencias.]`
+<table>
+  <tr>
+    <td>
+      <img src="misc/cartera.png" alt="Holdings" width="250"/>
+    </td>
+  </tr>
+</table>
 
 ### ➕ Cómo Añadir Saldo:
 
@@ -102,7 +108,13 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
 2.  Introduce la cantidad de saldo que deseas añadir en el diálogo.
 3.  Toca **"ADD"**. Tu saldo se actualizará.
 
-`[IMAGEN: Captura de pantalla del diálogo para añadir saldo (add_saldo_dialog.xml).]`
+<table>
+  <tr>
+    <td>
+      <img src="misc/addsaldo.png" alt="Add Balance" width="250"/>
+    </td>
+  </tr>
+</table>
 
 ### ➖ Cómo Retirar Saldo:
 
@@ -112,7 +124,13 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
     *   La app comprobará que no retiras más de lo que tienes 🚫.
     *   Si es válido, tu saldo disminuirá.
 
-`[IMAGEN: Captura de pantalla del diálogo para retirar saldo (withdraw_saldo_dialog.xml), mostrando el saldo actual.]`
+<table>
+  <tr>
+    <td>
+      <img src="misc/retirarsaldo.png" alt="Withdraw Balance" width="250"/>
+    </td>
+  </tr>
+</table>
 
 ### 💸 Cómo Vender Criptomonedas:
 
@@ -126,7 +144,13 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
     *   La app comprobará si la cantidad es válida 🚫.
     *   Si es válida, la transacción se registrará, tu saldo aumentará, y tu tenencia disminuirá (o desaparecerá si vendiste todo). ¡Éxito! ✨
 
-`[IMAGEN: Captura de pantalla del diálogo de venta (es el mismo add_transaction_dialog.xml, pero usado para vender), señalando la pista de cantidad disponible.]`
+<table>
+  <tr>
+    <td>
+      <img src="misc/sellcrypto.png" alt="Sell Crypto" width="250"/>
+    </td>
+  </tr>
+</table>
 
 ---
 

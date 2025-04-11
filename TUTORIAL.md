@@ -104,7 +104,7 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
 
 ### ➕ Cómo Añadir Saldo:
 
-1.  En la pantalla "Holdings", toca el botón **"ADD BALANCE"**.
+1.  En la pantalla "Holdings", toca el botón **"DEPOSIT"**.
 2.  Introduce la cantidad de saldo que deseas añadir en el diálogo.
 3.  Toca **"ADD"**. Tu saldo se actualizará.
 
@@ -118,7 +118,7 @@ Aquí es donde ves las criptomonedas que posees y gestionas tu saldo.
 
 ### ➖ Cómo Retirar Saldo:
 
-1.  En la pantalla "Holdings", toca el botón **"WITHDRAW BALANCE"**.
+1.  En la pantalla "Holdings", toca el botón **"WITHDRAW"**.
 2.  Introduce la cantidad que deseas retirar (verás tu saldo actual).
 3.  Toca **"WITHDRAW"**.
     *   La app comprobará que no retiras más de lo que tienes 🚫.

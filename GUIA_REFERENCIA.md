@@ -6,7 +6,6 @@
 4.  [🧩 Componentes Principales y Responsabilidades](#4-🧩-componentes-principales-y-responsabilidades)
 5.  [🌊 Flujos de Datos](#5-🌊-flujos-de-datos)
 6.  [🔗 Dependencias](#6-🔗-dependencias)
-7.  [🤔 Consideraciones y Puntos de Interés](#7-🤔-consideraciones-y-puntos-de-interés)
 
 ## 1. ℹ️ Introducción
 
@@ -213,15 +212,5 @@ res/                            # 🎨 Recursos
 *   **AndroidX Lifecycle (ViewModel & LiveData KTX)** (`androidx.lifecycle:lifecycle-viewmodel-ktx`, `androidx.lifecycle:lifecycle-livedata-ktx`)
 *   **AndroidX Navigation (Fragment & UI KTX)** (`androidx.navigation:navigation-fragment-ktx`, `androidx.navigation:navigation-ui-ktx`)
 *   **AndroidX RecyclerView** (`androidx.recyclerview:recyclerview`)
-
-## 7. 🤔 Consideraciones y Puntos de Interés
-
-*   **⚠️ Fuente de Datos Estática:** `CryptoProvider` limita la funcionalidad. Próximo paso: integrar API real (ej. CoinGecko) + `Repository`.
-*   **✨ Inmutabilidad:** Uso de `data class` y `copy()` ayuda a manejar el estado de forma predecible.
-*   **🔒 Manejo de Estado:** Centralizado en `CryptoViewModel` vía `LiveData`.
-*   **⚠️ Precisión Flotante:** `Double` no es ideal para finanzas. Considerar `BigDecimal` para cálculos monetarios en futuras versiones.
-*   **💾 Persistencia:** Falta de persistencia (datos se pierden al cerrar). Integrar Room o DataStore.
-*   **❌ Manejo de Errores:** Básico (`Toast`). Mejorar con estados de UI específicos para errores.
-*   **🧪 Testing:** Ausencia de tests. Añadir Unit Tests (ViewModel) y UI Tests (Espresso/Compose).
 
 ---

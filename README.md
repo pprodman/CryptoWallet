@@ -36,7 +36,7 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone https://github.com/pprodman/cryptowallet.git
+    git clone https://github.com/pprodman/CryptoWallet.git
     ```
 2.  **Abre el proyecto:** Abre Android Studio e importa el proyecto clonado.
 3.  **Sincroniza Gradle:** Espera a que Android Studio descargue y sincronice todas las dependencias necesarias.

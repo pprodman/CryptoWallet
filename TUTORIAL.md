@@ -4,7 +4,7 @@
 
 1.  [🚀 Primeros Pasos y Navegación](#1--primeros-pasos-y-navegación)
 2.  [🛒 Explorando el Mercado (Market)](#2--explorando-el-mercado-market)
-   *   [🌱 Cómo Comprar Criptomonedas](#-cómo-comprar-criptomonedas)
+     *   [🌱 Cómo Comprar Criptomonedas](#-cómo-comprar-criptomonedas)
 3.  [📊 Gestionando tu Cartera (Holdings)](#3--gestionando-tu-cartera-holdings)
      *   [➕ Cómo Añadir Saldo](#-cómo-añadir-saldo)
      *   [➖ Cómo Retirar Saldo](#-cómo-retirar-saldo)

@@ -45,13 +45,6 @@ Puedes encontrar información más detallada sobre la arquitectura y el desarrol
 Una vez listo para su distribución o instalación, sigue la [Guia de Lanzamiento](./LANZAMIENTO.md).
 
 
-## 📂 Manuales
-
-- [Tutorial de la App](./TUTORIAL.md)
-- [Guia de Referencia](./GUIA_REFERENCIA.md)
-- [Guia de Lanzamiento](./LANZAMIENTO.md)
-
-
 ## 📄 Licencia
 
 Este proyecto es para fines educativos y de demostración. Siéntete libre de usarlo y modificarlo.

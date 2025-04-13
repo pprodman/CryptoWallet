@@ -29,7 +29,7 @@ Para descubrir la aplicación de CryptoWallet, sigue el siguiente [Tutorial](./T
     -   `Material Components` (Buttons, TextViews, ImageView, CardView, Dialogs, Toolbar, NavigationView, DrawerLayout, Spinner)
 -   **Gestión de Dependencias:** Gradle
 
-Puedes encontrar información más detallada sobre la arquitectura y el desarrollo de la aplicación en la [Guia de Referencia](./GUIA_REFERENCIA.md)
+Encontrarás información más detallada sobre la arquitectura y el desarrollo de la aplicación en la [Guia de Referencia](./GUIA_REFERENCIA.md)
 
 
 ## 🚀 Instalación y Ejecución

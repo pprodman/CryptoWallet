@@ -4,9 +4,11 @@
 
 1.  [🚀 Primeros Pasos y Navegación](#1--primeros-pasos-y-navegación)
 2.  [🛒 Explorando el Mercado (Market)](#2--explorando-el-mercado-market)
-    *  [Cómo Comprar Criptomonedas](#archivo-buildgradle-app)
+    *  [🌱 Cómo Comprar Criptomonedas](#-cómo-comprar-criptomonedas)
 3.  [📊 Gestionando tu Cartera (Holdings)](#3--gestionando-tu-cartera-holdings)
-  *   [Cómo Comprar Criptomonedas](#archivo-buildgradle-app) 
+  *   [➕ Cómo Añadir Saldo](#-cómo-añadir-saldo)
+  *   [➖ Cómo Retirar Saldo](#-cómo-retirar-saldo)
+  *   [💸 Cómo Vender Criptomonedas](#-cómo-vender-criptomonedas)
 4.  [📜 Revisando tu Historial (Transactions)](#4--revisando-tu-historial-transactions)
 
 **⚠️ Nota:** Esta aplicación utiliza datos de ejemplo y simula transacciones. No se maneja dinero real.

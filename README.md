@@ -12,6 +12,8 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 - 📜 Historial completo de transacciones
 - 📅 Selección de fechas para transacciones
 
+Para conocer más a fondo la App, sigue el siguiente [**tutorial**](./TUTORIAL).
+
 
 ## 🏗️ Arquitectura y Tecnologías Utilizadas
 

@@ -4,9 +4,9 @@
 
 1.  [🚀 Primeros Pasos y Navegación](#1--primeros-pasos-y-navegación)
 2.  [🛒 Explorando el Mercado (Market)](#2--explorando-el-mercado-market)
-   *   [Archivo `build.gradle` (app)](#archivo-buildgradle-app)
-    *   [Ofuscación y Optimización (ProGuard/R8)](#ofuscación-y-optimización-proguardr8)
+   *   [Cómo Comprar Criptomonedas](#archivo-buildgradle-app) 
 4.  [📊 Gestionando tu Cartera (Holdings)](#3--gestionando-tu-cartera-holdings)
+  *   [Cómo Comprar Criptomonedas](#archivo-buildgradle-app) 
 5.  [📜 Revisando tu Historial (Transactions)](#4--revisando-tu-historial-transactions)
 
 **⚠️ Nota:** Esta aplicación utiliza datos de ejemplo y simula transacciones. No se maneja dinero real.

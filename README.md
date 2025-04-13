@@ -12,7 +12,7 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 - 📜 Historial completo de transacciones
 - 📅 Selección de fechas para transacciones
 
-Para descubrir la aplicación de CryptoWallet, sigue el siguiente [**tutorial**](./TUTORIAL)
+Para descubrir la aplicación de CryptoWallet, sigue el siguiente [**tutorial**](./TUTORIAL.md)
 
 
 ## 🏗️ Arquitectura y Tecnologías Utilizadas

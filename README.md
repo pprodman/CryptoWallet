@@ -12,7 +12,7 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 - 📜 Historial completo de transacciones
 - 📅 Selección de fechas para transacciones
 
-Para descubrir la aplicación de CryptoWallet, sigue el siguiente [**tutorial**](./TUTORIAL.md)
+Para descubrir la aplicación de CryptoWallet, sigue el siguiente [**tutorial**](./TUTORIAL.md).
 
 
 ## 🏗️ Arquitectura y Tecnologías Utilizadas
@@ -29,11 +29,8 @@ Para descubrir la aplicación de CryptoWallet, sigue el siguiente [**tutorial**]
     -   `Material Components` (Buttons, TextViews, ImageView, CardView, Dialogs, Toolbar, NavigationView, DrawerLayout, Spinner)
 -   **Gestión de Dependencias:** Gradle
 
-## 📂 Manuales
+Puedes encontrar información más detallada sobre la arquitectura y el desarrollo de la aplicación en la [Guia de Referencia](./GUIA_REFERENCIA.md)
 
-- [Tutorial de la App](./TUTORIAL.md)
-- [Guia de Referencia](./GUIA_REFERENCIA.md)
-- [Guia de Lanzamiento](./LANZAMIENTO.md)
 
 ## 🚀 Instalación y Ejecución
 
@@ -44,6 +41,15 @@ Para descubrir la aplicación de CryptoWallet, sigue el siguiente [**tutorial**]
 2.  **Abre el proyecto:** Abre Android Studio e importa el proyecto clonado.
 3.  **Sincroniza Gradle:** Espera a que Android Studio descargue y sincronice todas las dependencias necesarias.
 4.  **Ejecuta la aplicación:** Selecciona un emulador o conecta un dispositivo físico y presiona el botón 'Run'.
+
+Una vez listo para su distribución o instalación, sigue la [Guia de Lanzamiento](./LANZAMIENTO.md).
+
+
+## 📂 Manuales
+
+- [Tutorial de la App](./TUTORIAL.md)
+- [Guia de Referencia](./GUIA_REFERENCIA.md)
+- [Guia de Lanzamiento](./LANZAMIENTO.md)
 
 
 ## 📄 Licencia

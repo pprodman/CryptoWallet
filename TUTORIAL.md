@@ -4,7 +4,7 @@
 
 1.  [🚀 Primeros Pasos y Navegación](#1--primeros-pasos-y-navegación)
 2.  [🛒 Explorando el Mercado (Market)](#2--explorando-el-mercado-market)
-   *    [Cómo Comprar Criptomonedas](#archivo-buildgradle-app) 
+    * [Cómo Comprar Criptomonedas](#archivo-buildgradle-app) 
 4.  [📊 Gestionando tu Cartera (Holdings)](#3--gestionando-tu-cartera-holdings)
   *   [Cómo Comprar Criptomonedas](#archivo-buildgradle-app) 
 5.  [📜 Revisando tu Historial (Transactions)](#4--revisando-tu-historial-transactions)

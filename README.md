@@ -44,6 +44,7 @@ Encontrarás información más detallada sobre la arquitectura y el desarrollo d
 
 Una vez listo para su distribución o instalación, sigue la [Guia de Lanzamiento](./LANZAMIENTO.md).
 
+➡️ **[Acceder a Releases](https://github.com/pprodman/CryptoWallet/releases)** ⬅️
 
 ## 📄 Licencia
 

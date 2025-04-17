@@ -12,6 +12,8 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 - 📜 Historial completo de transacciones
 - 📅 Selección de fechas para transacciones
 
+Para descubrir la aplicación de CryptoWallet, sigue el siguiente [Tutorial](./TUTORIAL.md).
+
 
 ## 🏗️ Arquitectura y Tecnologías Utilizadas
 
@@ -27,10 +29,8 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
     -   `Material Components` (Buttons, TextViews, ImageView, CardView, Dialogs, Toolbar, NavigationView, DrawerLayout, Spinner)
 -   **Gestión de Dependencias:** Gradle
 
-## 📂 Manuales
+Encontrarás información más detallada sobre la arquitectura y el desarrollo de la aplicación en la [Guia de Referencia](./GUIA_REFERENCIA.md)
 
-- [Tutorial](./TUTORIAL.md)
-- [Guia de referencia](./GUIA_REFERENCIA.md)
 
 ## 🚀 Instalación y Ejecución
 
@@ -41,6 +41,8 @@ Una aplicación Android sencilla desarrollada en Kotlin que simula una cartera d
 2.  **Abre el proyecto:** Abre Android Studio e importa el proyecto clonado.
 3.  **Sincroniza Gradle:** Espera a que Android Studio descargue y sincronice todas las dependencias necesarias.
 4.  **Ejecuta la aplicación:** Selecciona un emulador o conecta un dispositivo físico y presiona el botón 'Run'.
+
+Una vez listo para su distribución o instalación, sigue la [Guia de Lanzamiento](./LANZAMIENTO.md).
 
 
 ## 📄 Licencia

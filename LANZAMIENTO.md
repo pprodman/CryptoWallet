@@ -168,19 +168,8 @@ Si has configurado la firma en `build.gradle` (Paso 3), puedes usar la terminal:
 
 ## 5. Disponibilidad del Artefacto Firmado (GitHub Releases)
 
-Para compartir el artefacto firmado como parte de la entrega del proyecto, se utiliza la función "Releases" de GitHub:
-
-1.  **Ve a tu repositorio** en GitHub (`pprodman/CryptoWallet`).
-2.  Haz clic en la pestaña **"Releases"**.
-3.  Haz clic en **"Draft a new release"**.
-4.  **Crea o elige una etiqueta** (tag) para la versión (ej., `v1.0.0`).
-5.  **Añade un título** para el release.
-6.  **Adjunta el archivo `.aab`** (o `.apk`) generado en la sección "Attach binaries".
-7.  **Publica el release**.
-
-✅ El artefacto firmado estará ahora disponible públicamente para su descarga desde la página de Releases de tu repositorio:
+✅ El artefacto firmado está ahora disponible públicamente para su descarga desde la página de Releases del repositorio:
 
 ➡️ **[Acceder a Releases](https://github.com/pprodman/CryptoWallet/releases)** ⬅️
-*(Asegúrate de que este enlace sea correcto y el release exista)*
 
 ---
